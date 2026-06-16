@@ -1,0 +1,16 @@
+{
+  "name": "hammer-and-bricks",
+  "version": "1.0.0",
+  "description": "Hammer & Bricks — strategy board game by Mighty Units Ltd",
+  "scripts": {
+    "sync": "cap sync",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/cli": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
+    "@capacitor/ios": "^8.4.0"
+  }
+}
