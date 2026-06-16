@@ -5,6 +5,7 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       node: 22.11.0
+      java: 21
     scripts:
       - name: Install dependencies
         script: |
@@ -30,6 +31,7 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       node: 22.11.0
+      java: 21
       groups:
         - android_signing
     scripts:
