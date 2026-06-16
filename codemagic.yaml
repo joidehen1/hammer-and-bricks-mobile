@@ -7,7 +7,9 @@ workflows:
       node: 22.11.0
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          rm -rf node_modules
+          npm install
       - name: Sync Capacitor
         script: npx cap sync android
       - name: Build Android debug APK
@@ -29,11 +31,11 @@ workflows:
       node: 22.11.0
       groups:
         - android_signing
-        # Create this group in Codemagic > Team settings > Environment variables
-        # with: CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_ALIAS, CM_KEY_PASSWORD
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          rm -rf node_modules
+          npm install
       - name: Sync Capacitor
         script: npx cap sync android
       - name: Build Android release bundle
@@ -53,8 +55,6 @@ workflows:
     instance_type: mac_mini_m2
     integrations:
       app_store_connect: codemagic_appstore_connect
-      # Set this up first in Codemagic > Team settings > Integrations,
-      # using the reference name you choose there.
     environment:
       node: 22.11.0
       ios_signing:
@@ -62,7 +62,9 @@ workflows:
         bundle_identifier: com.mightyunits.hammerandbricks
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          rm -rf node_modules
+          npm install
       - name: Sync Capacitor
         script: npx cap sync ios
       - name: Install CocoaPods
