@@ -9,6 +9,7 @@ workflows:
       - name: Install dependencies
         script: |
           rm -rf node_modules
+          rm -f package-lock.json
           npm install
       - name: Sync Capacitor
         script: npx cap sync android
@@ -35,6 +36,7 @@ workflows:
       - name: Install dependencies
         script: |
           rm -rf node_modules
+          rm -f package-lock.json
           npm install
       - name: Sync Capacitor
         script: npx cap sync android
@@ -64,6 +66,7 @@ workflows:
       - name: Install dependencies
         script: |
           rm -rf node_modules
+          rm -f package-lock.json
           npm install
       - name: Sync Capacitor
         script: npx cap sync ios
