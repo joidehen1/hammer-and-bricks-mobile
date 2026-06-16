@@ -2,7 +2,7 @@ workflows:
   android-debug:
     name: Hammer and Bricks - Android (debug, no signing needed)
     max_build_duration: 30
-    instance_type: linux
+    instance_type: mac_mini_m2
     environment:
       node: 20.19.0
     scripts:
@@ -24,7 +24,7 @@ workflows:
   android-release:
     name: Hammer and Bricks - Android (release, for Play Store)
     max_build_duration: 30
-    instance_type: linux
+    instance_type: mac_mini_m2
     environment:
       node: 20.19.0
       groups:
