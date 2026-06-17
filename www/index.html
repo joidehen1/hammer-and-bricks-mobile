@@ -2870,6 +2870,56 @@
                 width: 100% !important;
                 padding: 0 !important;
             }
+
+            /* ===== MOBILE FIX — Game board (board-area / home-section / lane) =====
+               Desktop layout puts two fixed 200px Home sections either side
+               of the 41-space lane, all in one row with no scrolling. On a
+               phone that's wider than the screen itself, so the homes get
+               pushed off both edges and only a thin slice of the lane shows.
+               Fix: stack the two homes above/below the lane at full width,
+               and let the lane scroll horizontally within itself so all 41
+               spaces stay a readable size instead of being squeezed flat. */
+            .board-area {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            .home-section {
+                min-width: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .lane {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .lane-spaces {
+                width: max-content !important;
+                min-width: 100% !important;
+            }
+            .space {
+                flex: 0 0 auto !important;
+                min-width: 40px !important;
+            }
+
+            /* ===== MOBILE FIX — Timer/Settings overlap =====
+               Both float at a fixed position sized for desktop and can sit
+               on top of board content on a small screen. Shrink them and
+               pull them into the corner so they take up far less room. */
+            .settings-btn {
+                top: 8px !important;
+                left: 8px !important;
+                padding: 6px 10px !important;
+                font-size: 0.85em !important;
+            }
+            .timer-display {
+                top: 52px !important;
+                left: 8px !important;
+                padding: 8px 12px !important;
+                font-size: 0.85em !important;
+            }
         }
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
