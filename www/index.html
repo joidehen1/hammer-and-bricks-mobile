@@ -3070,6 +3070,18 @@
     </script>
 </head>
 <body>
+<div id="viewportDebug" style="position:fixed; top:0; left:0; right:0; z-index:999999; background:#ff0000; color:#ffffff; font-size:14px; font-weight:bold; padding:6px; text-align:center; font-family:monospace;"></div>
+<script>
+  (function() {
+    var d = document.getElementById('viewportDebug');
+    function update() {
+      d.textContent = 'innerWidth=' + window.innerWidth + ' innerHeight=' + window.innerHeight + ' devicePixelRatio=' + window.devicePixelRatio;
+    }
+    update();
+    window.addEventListener('resize', update);
+  })();
+</script>
+
     <div id="mighty-auth-container" style="display: none;">
     <div class="auth-card">
         <h1>MIGHTY UNITS</h1>
