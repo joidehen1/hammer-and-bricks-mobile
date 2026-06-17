@@ -6856,8 +6856,8 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
         
         // Prevent iOS bounce/overscroll
         document.body.addEventListener('touchmove', function(e) {
-            if (e.target.closest('.board-container')) {
-                // Allow scroll in board container
+            if (e.target.closest('.board-container') || e.target.closest('.game-container') || e.target.closest('.screen')) {
+                // Allow scroll in board container (legacy), the current game screen, and the welcome screen
                 return;
             }
             // Prevent scroll everywhere else
