@@ -3076,9 +3076,23 @@
     var d = document.getElementById('viewportDebug');
     function update() {
       d.textContent = 'innerWidth=' + window.innerWidth + ' innerHeight=' + window.innerHeight + ' devicePixelRatio=' + window.devicePixelRatio;
+      var ba = document.querySelector('.board-area');
+      var hs = document.querySelector('.home-section');
+      var ln = document.querySelector('.lane');
+      if (ba && hs && ln) {
+        var baStyle = getComputedStyle(ba);
+        var hsStyle = getComputedStyle(hs);
+        var lnStyle = getComputedStyle(ln);
+        d.textContent += ' | board-area flex-direction=' + baStyle.flexDirection + ' width=' + ba.offsetWidth;
+        d.textContent += ' | home-section width=' + hs.offsetWidth + ' (' + hsStyle.width + ')';
+        d.textContent += ' | lane flex=' + lnStyle.flex + ' width=' + ln.offsetWidth;
+      } else {
+        d.textContent += ' | board-area/home-section/lane not found in DOM yet';
+      }
     }
     update();
     window.addEventListener('resize', update);
+    setInterval(update, 1000);
   })();
 </script>
 
