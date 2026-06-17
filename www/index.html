@@ -2965,6 +2965,13 @@
                 font-size: 1em !important;
                 margin-bottom: 10px !important;
             }
+            .doubles-tracking {
+                margin-top: 8px !important;
+                padding-top: 8px !important;
+            }
+            .doubles-breakdown {
+                margin-top: 3px !important;
+            }
         }
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
@@ -6624,7 +6631,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                 const mbFormation = getFormation(mbPos, 'red', 'MB');
                                 if (!mbFormation) return '';
                                 return `
-                                    <div style="background: rgba(239, 68, 68, 0.15); padding: 8px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #ef4444;">
+                                    <div style="background: rgba(239, 68, 68, 0.15); padding: 5px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #ef4444;">
                                         <div style="font-size: 0.75em; font-weight: bold; color: #fbbf24;">Formation ${mbFormation}</div>
                                         <div style="font-size: 0.7em; color: #cbd5e1;">${getFormationName(mbFormation, 'MB')}</div>
                                         <div style="font-size: 0.65em; color: #94a3b8;">Position: ${mbPos}</div>
@@ -6681,7 +6688,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                 </div>
                             </div>
                             ${gameState.player1Color || gameState.player2Color ? `
-                                <div style="text-align: center; margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; font-weight: bold; color: #fbbf24;">
+                                <div style="text-align: center; margin-top: 8px; padding: 6px; background: rgba(255,255,255,0.1); border-radius: 5px; font-weight: bold; color: #fbbf24;">
                                     ${gameState.player1Color === 'red' ? '👤 PLAYER 1' : '👤 PLAYER 2'}
                                 </div>
                             ` : ''}
@@ -6745,7 +6752,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                 const mhFormation = getFormation(mhPos, 'blue', 'MH');
                                 if (!mhFormation) return '';
                                 return `
-                                    <div style="background: rgba(59, 130, 246, 0.15); padding: 8px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #3b82f6;">
+                                    <div style="background: rgba(59, 130, 246, 0.15); padding: 5px; border-radius: 6px; margin-bottom: 6px; border: 1px solid #3b82f6;">
                                         <div style="font-size: 0.75em; font-weight: bold; color: #fbbf24;">Formation ${mhFormation}</div>
                                         <div style="font-size: 0.7em; color: #cbd5e1;">${getFormationName(mhFormation, 'MH')}</div>
                                         <div style="font-size: 0.65em; color: #94a3b8;">Position: ${mhPos}</div>
@@ -6802,7 +6809,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                 </div>
                             </div>
                             ${gameState.player1Color || gameState.player2Color ? `
-                                <div style="text-align: center; margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; font-weight: bold; color: #fbbf24;">
+                                <div style="text-align: center; margin-top: 8px; padding: 6px; background: rgba(255,255,255,0.1); border-radius: 5px; font-weight: bold; color: #fbbf24;">
                                     ${gameState.player1Color === 'blue' ? '👤 PLAYER 1' : '👤 PLAYER 2'}
                                 </div>
                             ` : ''}
