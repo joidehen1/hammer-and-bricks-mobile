@@ -3083,9 +3083,14 @@
         var baStyle = getComputedStyle(ba);
         var hsStyle = getComputedStyle(hs);
         var lnStyle = getComputedStyle(ln);
-        d.textContent += ' | board-area flex-direction=' + baStyle.flexDirection + ' width=' + ba.offsetWidth;
-        d.textContent += ' | home-section width=' + hs.offsetWidth + ' (' + hsStyle.width + ')';
-        d.textContent += ' | lane flex=' + lnStyle.flex + ' width=' + ln.offsetWidth;
+        d.textContent += ' | ba h=' + ba.offsetHeight + ' dir=' + baStyle.flexDirection;
+        d.textContent += ' | home h=' + hs.offsetHeight;
+        d.textContent += ' | lane h=' + ln.offsetHeight + ' overflowX=' + lnStyle.overflowX;
+        var lsp = document.querySelector('.lane-spaces');
+        if (lsp) {
+          d.textContent += ' | lane-spaces w=' + lsp.offsetWidth + ' h=' + lsp.offsetHeight + ' children=' + lsp.children.length;
+        }
+        d.textContent += ' | bodyScrollH=' + document.body.scrollHeight + ' winH=' + window.innerHeight;
       } else {
         d.textContent += ' | board-area/home-section/lane not found in DOM yet';
       }
