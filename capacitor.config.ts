@@ -1,19 +1,31 @@
-{
-  "name": "hammer-and-bricks",
-  "version": "1.0.0",
-  "description": "Hammer & Bricks — strategy board game by Mighty Units Ltd",
-  "scripts": {
-    "sync": "cap sync",
-    "open:android": "cap open android",
-    "open:ios": "cap open ios"
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.mightyunits.hammerandbricks',
+  appName: 'Hammer & Bricks',
+  webDir: 'www',
+  bundledWebRuntime: false,
+  backgroundColor: '#0a0a2e',
+  server: {
+    androidScheme: 'https',
+    iosScheme: 'https'
   },
-  "dependencies": {
-    "@capacitor/android": "^8.4.0",
-    "@capacitor/cli": "^8.4.0",
-    "@capacitor/core": "^8.4.0",
-    "@capacitor/ios": "^8.4.0"
+  ios: {
+    contentInset: 'always',
+    backgroundColor: '#0a0a2e'
   },
-  "devDependencies": {
-    "typescript": "^5.6.0"
+  android: {
+    backgroundColor: '#0a0a2e',
+    allowMixedContent: false
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 1200,
+      backgroundColor: '#0a0a2e',
+      showSpinner: false,
+      androidSplashResourceName: 'splash'
+    }
   }
-}
+};
+
+export default config;
