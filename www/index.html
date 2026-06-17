@@ -2839,6 +2839,38 @@
         .sc-lobby-name{color:#e2e8f0;font-size:0.9em;font-weight:600;}
         .sc-lobby-status{width:9px;height:9px;border-radius:50%;background:#10b981;display:inline-block;margin-right:6px;}
         .sc-lobby-status.offline{background:#475569;}
+
+        /* ===== MOBILE FIX — Welcome Screen (hammer-and-bricks-welcome-v2-1) =====
+           The 3-column grid (.screen) with fixed 280px side panels and
+           overflow:hidden on html/body was designed for desktop and never
+           adapted for narrow phone screens. On mobile we hide the two
+           decorative HUD side panels, let the centre column (which has the
+           actual Start Game button) take the full width, and restore
+           scrolling in case any phone is still slightly taller than one
+           viewport. */
+        @media (max-width: 768px) {
+            html, body {
+                overflow-y: auto !important;
+                height: auto !important;
+                min-height: 100% !important;
+            }
+            .screen {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 100vh !important;
+                padding: 20px 16px !important;
+                box-sizing: border-box !important;
+            }
+            .hud-panel {
+                display: none !important;
+            }
+            .centre {
+                width: 100% !important;
+                padding: 0 !important;
+            }
+        }
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 
