@@ -2986,6 +2986,96 @@
             .doubles-breakdown {
                 margin-top: 3px !important;
             }
+
+            /* ===== COMPACT HOME SECTION — reduce 427px height to ~110px =====
+               On 360×695 screens the two home sections + lane stack to 967px
+               (272px taller than the viewport). Make each home section a flat
+               horizontal strip: token grid runs left, info runs right. */
+            .home-section {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                padding: 4px 6px !important;
+            }
+            /* Row 1: title + player badge — full width */
+            .home-section h3 {
+                width: 100% !important;
+                margin: 0 0 2px 0 !important;
+                font-size: 0.72em !important;
+                text-align: left !important;
+            }
+            /* Token grid: compact 2×2 side by side */
+            .tokens-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 30px) !important;
+                gap: 3px !important;
+                margin-bottom: 0 !important;
+                flex-shrink: 0 !important;
+            }
+            .token, .tool-token {
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 11px !important;
+            }
+            /* MB / tool-token sits right of the grid */
+            .tool-token {
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            /* Rule buttons: shrink and sit inline */
+            .rule-btns-row {
+                display: flex !important;
+                gap: 3px !important;
+                flex-shrink: 0 !important;
+            }
+            .rule-btn {
+                padding: 2px 5px !important;
+                font-size: 0.65em !important;
+            }
+            /* Doubles: collapsed to one line */
+            .doubles-tracking {
+                width: 100% !important;
+                margin-top: 2px !important;
+                padding-top: 2px !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                align-items: baseline !important;
+            }
+            .doubles-tracking.active {
+                display: flex !important;
+            }
+            .doubles-title {
+                font-size: 0.7em !important;
+                margin-bottom: 0 !important;
+            }
+            .doubles-count {
+                font-size: 0.7em !important;
+            }
+            .doubles-breakdown {
+                font-size: 0.65em !important;
+                line-height: 1.3 !important;
+                margin-top: 0 !important;
+                width: 100% !important;
+            }
+            /* Formation info box: shrink */
+            .home-section > div[style*="rgba(239"] ,
+            .home-section > div[style*="rgba(59"] {
+                width: 100% !important;
+                padding: 2px !important;
+                margin-bottom: 2px !important;
+            }
+            /* Player badge: inline small */
+            .home-section > div[style*="text-align: center; margin-top"] {
+                width: auto !important;
+                padding: 2px 6px !important;
+                font-size: 0.7em !important;
+                margin-top: 0 !important;
+            }
         }
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
