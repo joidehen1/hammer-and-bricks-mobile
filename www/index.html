@@ -3226,44 +3226,6 @@
     </script>
 </head>
 <body>
-<div id="viewportDebug" style="position:fixed; top:0; left:0; right:0; z-index:999999; background:#ff0000; color:#ffffff; font-size:14px; font-weight:bold; padding:6px; text-align:center; font-family:monospace;"></div>
-<script>
-  (function() {
-    var d = document.getElementById('viewportDebug');
-    function update() {
-      d.textContent = 'innerWidth=' + window.innerWidth + ' innerHeight=' + window.innerHeight + ' devicePixelRatio=' + window.devicePixelRatio;
-      var ba = document.querySelector('.board-area');
-      var hs = document.querySelector('.home-section');
-      var ln = document.querySelector('.lane');
-      if (ba && hs && ln) {
-        var baStyle = getComputedStyle(ba);
-        var hsStyle = getComputedStyle(hs);
-        var lnStyle = getComputedStyle(ln);
-        d.textContent += ' | ba h=' + ba.offsetHeight + ' dir=' + baStyle.flexDirection;
-        d.textContent += ' | home h=' + hs.offsetHeight;
-        var kids = hs.children;
-        var kidInfo = '';
-        for (var i = 0; i < kids.length; i++) {
-          var k = kids[i];
-          var label = k.className || k.tagName;
-          kidInfo += ' [' + label + ' h=' + k.offsetHeight + ']';
-        }
-        d.textContent += ' | homeKids:' + kidInfo;
-        d.textContent += ' | lane h=' + ln.offsetHeight + ' overflowX=' + lnStyle.overflowX;
-        var lsp = document.querySelector('.lane-spaces');
-        if (lsp) {
-          d.textContent += ' | lane-spaces w=' + lsp.offsetWidth + ' h=' + lsp.offsetHeight + ' children=' + lsp.children.length;
-        }
-        d.textContent += ' | bodyScrollH=' + document.body.scrollHeight + ' winH=' + window.innerHeight;
-      } else {
-        d.textContent += ' | board-area/home-section/lane not found in DOM yet';
-      }
-    }
-    update();
-    window.addEventListener('resize', update);
-    setInterval(update, 1000);
-  })();
-</script>
 
     <div id="mighty-auth-container" style="display: none;">
     <div class="auth-card">
