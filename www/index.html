@@ -3098,162 +3098,242 @@
             }
 
             /* ===== MOBILE FIT-TO-SCREEN — Galaxy S26 (360×780px) =====
-               Goal: entire game board visible with zero vertical scroll.
-               Strategy:
-                 • Hide score-board, doubles-tracking, timer, settings btn
-                 • Compress game-container, h1, game-info, message-box
-                 • Keep: title, subtitle, turn label, dice, Roll Dice,
-                   End Turn, move options, all tokens, all 41 lane spaces */
+               Goal: entire game board on ONE screen, zero vertical scroll.
 
-            /* --- Hide non-essential panels --- */
+               Layout:
+                 TOP BAR  : title | turn | dice | Roll | End (one row)
+                 MSG ROW  : message box (1 line)
+                 BOARD ROW: [Red Home] [Lane 6-col snake] [Blue Home]
+                            — three columns side by side
+                 HIDDEN   : score-board, doubles, timer, settings, auth bar
+            ============================================================ */
+
+            /* --- AUTH BAR: hide during gameplay (shown only on welcome) --- */
+            .game-container.active ~ .auth-user-bar,
+            .game-container.active + .auth-user-bar,
+            .auth-user-bar {
+                display: none !important;
+            }
+
+            /* --- SCORE BOARD: always hide on mobile --- */
             .score-board {
                 display: none !important;
             }
+
+            /* --- DOUBLES: hide by ID (JS adds .active, ID beats class) --- */
+            #redHome,
+            #blueHome,
             .doubles-tracking,
             .doubles-tracking.active {
                 display: none !important;
             }
-            .timer-display {
+
+            /* --- TIMER / SETTINGS --- */
+            .timer-display,
+            .timer-display.active {
                 display: none !important;
             }
             .settings-btn {
                 display: none !important;
             }
-            .subtitle {
-                display: none !important;
-            }
+
+            /* --- DECORATIVE TEXT --- */
+            .subtitle,
+            .game-container > .subtitle,
             .lane h3 {
                 display: none !important;
             }
-            /* Formation info boxes inside home sections — keep hidden */
+
+            /* --- PLAYER BADGE inside home section --- */
+            .home-section > div[style*="text-align: center; margin-top"] {
+                display: none !important;
+            }
+
+            /* --- Formation boxes: keep hidden --- */
             .home-section > div[style*="rgba(239"],
             .home-section > div[style*="rgba(59"] {
                 display: none !important;
             }
 
-            /* --- Game container: no wasted padding --- */
+            /* ── GAME CONTAINER ─────────────────────────────────────── */
             .game-container {
-                padding: 0 4px !important;
+                padding: 2px 3px 0 !important;
             }
 
-            /* --- Title: ultra-compact, keep visible --- */
+            /* ── TITLE: small, single line ──────────────────────────── */
             .game-container > h1 {
-                font-size: 1em !important;
-                margin-bottom: 4px !important;
+                font-size: 0.85em !important;
+                margin-bottom: 2px !important;
                 text-align: center !important;
-                line-height: 1.2 !important;
-            }
-            .game-container > .subtitle {
-                display: none !important;
+                line-height: 1.1 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
             }
 
-            /* --- Game-info bar: compress to one tight row --- */
+            /* ── GAME-INFO BAR: one tight row ───────────────────────── */
             .game-info {
-                padding: 4px 6px !important;
-                margin-bottom: 4px !important;
+                padding: 3px 5px !important;
+                margin-bottom: 3px !important;
                 flex-direction: row !important;
-                flex-wrap: wrap !important;
+                flex-wrap: nowrap !important;
                 gap: 4px !important;
                 align-items: center !important;
-                border-radius: 6px !important;
+                justify-content: space-between !important;
+                border-radius: 5px !important;
             }
             .current-turn {
-                font-size: 0.75em !important;
+                font-size: 0.65em !important;
                 font-weight: bold !important;
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
             }
             .turn-indicator {
-                width: 14px !important;
-                height: 14px !important;
-                margin-left: 4px !important;
+                width: 12px !important;
+                height: 12px !important;
+                margin-left: 3px !important;
                 border-width: 2px !important;
+                vertical-align: middle !important;
             }
             .dice-section {
-                gap: 4px !important;
+                gap: 3px !important;
+                flex-wrap: nowrap !important;
+                flex-shrink: 0 !important;
             }
             .die {
-                width: 26px !important;
-                height: 26px !important;
-                font-size: 14px !important;
+                width: 22px !important;
+                height: 22px !important;
+                font-size: 12px !important;
+                line-height: 22px !important;
             }
             .btn {
-                padding: 4px 8px !important;
-                font-size: 0.7em !important;
-                border-radius: 5px !important;
+                padding: 3px 7px !important;
+                font-size: 0.65em !important;
+                border-radius: 4px !important;
+                white-space: nowrap !important;
             }
 
-            /* --- Message box: one short line --- */
+            /* ── MESSAGE BOX: single compact line ───────────────────── */
             .message-box {
-                padding: 3px 6px !important;
-                font-size: 0.7em !important;
-                margin-bottom: 4px !important;
-                border-radius: 5px !important;
-                line-height: 1.3 !important;
+                padding: 2px 5px !important;
+                font-size: 0.65em !important;
+                margin-bottom: 3px !important;
+                border-radius: 4px !important;
+                line-height: 1.2 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
             }
 
-            /* --- Move options: compact --- */
+            /* ── MOVE OPTIONS: compact strip ────────────────────────── */
             .move-options {
-                margin-bottom: 4px !important;
-                padding: 3px 6px !important;
+                margin-bottom: 3px !important;
+                padding: 2px 4px !important;
             }
             .move-options h3 {
-                font-size: 0.7em !important;
-                margin-bottom: 3px !important;
+                font-size: 0.62em !important;
+                margin-bottom: 2px !important;
             }
             .move-buttons {
-                gap: 3px !important;
+                gap: 2px !important;
                 flex-wrap: wrap !important;
+                display: flex !important;
             }
             .btn-move {
-                padding: 3px 7px !important;
-                font-size: 0.68em !important;
+                padding: 2px 5px !important;
+                font-size: 0.62em !important;
             }
 
-            /* --- Board area: tight --- */
+            /* ── BOARD AREA: 3-column row layout ────────────────────── */
+            /* Red Home | Lane | Blue Home  — all side by side          */
             .board-area {
-                gap: 4px !important;
+                flex-direction: row !important;
+                align-items: stretch !important;
+                gap: 3px !important;
                 margin-bottom: 0 !important;
+                flex-wrap: nowrap !important;
             }
 
-            /* --- Home sections: minimal height --- */
+            /* ── HOME SECTIONS: narrow columns either side ──────────── */
             .home-section {
-                padding: 3px 5px !important;
+                width: 58px !important;
+                min-width: 58px !important;
+                max-width: 58px !important;
+                flex-shrink: 0 !important;
+                padding: 3px 3px !important;
                 gap: 2px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                box-sizing: border-box !important;
+                border-width: 1px !important;
+                border-radius: 5px !important;
             }
             .home-section h3 {
-                font-size: 0.65em !important;
-                margin: 0 0 1px 0 !important;
+                font-size: 0.55em !important;
+                margin: 0 0 2px 0 !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                width: 100% !important;
             }
             .tokens-grid {
-                grid-template-columns: repeat(2, 26px) !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 24px) !important;
                 gap: 2px !important;
+                margin-bottom: 2px !important;
+                justify-content: start !important;
             }
-            .token, .tool-token {
-                width: 26px !important;
-                height: 26px !important;
-                font-size: 9px !important;
+            .token {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 8px !important;
+            }
+            .tool-token {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 8px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin-top: 1px !important;
             }
 
-            /* --- Lane: all 41 spaces in 6-column grid, no scroll --- */
+            /* ── LANE: flex-grow, 6-column snake grid ───────────────── */
             .lane {
-                padding: 3px !important;
+                flex: 1 1 0 !important;
+                min-width: 0 !important;
+                width: auto !important;
+                padding: 2px !important;
+                overflow: visible !important;
+                box-sizing: border-box !important;
             }
             .lane-spaces {
+                display: grid !important;
                 grid-template-columns: repeat(6, 1fr) !important;
                 gap: 1px !important;
+                width: 100% !important;
+                padding: 0 !important;
+                overflow: visible !important;
             }
             .space {
-                min-height: 36px !important;
+                flex: unset !important;
+                min-width: 0 !important;
+                min-height: 30px !important;
+                width: 100% !important;
                 padding: 1px !important;
-                font-size: 0.6em !important;
+                font-size: 0.55em !important;
+                box-sizing: border-box !important;
             }
             .space-number {
                 font-size: 0.6em !important;
                 margin-bottom: 0 !important;
+                line-height: 1 !important;
             }
             .board-token {
-                width: 14px !important;
-                height: 14px !important;
-                font-size: 7px !important;
+                width: 12px !important;
+                height: 12px !important;
+                font-size: 6px !important;
             }
         }
     </style>
