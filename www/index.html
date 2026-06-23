@@ -1417,10 +1417,7 @@
     --green:#2ecc71; --blue:#2980b9; --red:#c0392b;
   }
   html,body { width:100%; height:100%; overflow:hidden; background:var(--dark); font-family:"Rajdhani",sans-serif; color:var(--text); }
-  /* V16-CONFIRMED */
-  @media (max-width: 768px) {
-    .score-board { display: none !important; }
-  }
+  @media (max-width: 768px) { .score-board { display: none !important; } }
 
   #bg-canvas { position:fixed; inset:0; z-index:0; }
   .vignette { position:fixed; inset:0; z-index:1; background:radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.88) 100%); pointer-events:none; }
@@ -3101,243 +3098,23 @@
                 font-size: 8px !important;
             }
 
-            /* ===== MOBILE FIT-TO-SCREEN — Galaxy S26 (360×780px) =====
-               Goal: entire game board on ONE screen, zero vertical scroll.
-
-               Layout:
-                 TOP BAR  : title | turn | dice | Roll | End (one row)
-                 MSG ROW  : message box (1 line)
-                 BOARD ROW: [Red Home] [Lane 6-col snake] [Blue Home]
-                            — three columns side by side
-                 HIDDEN   : score-board, doubles, timer, settings, auth bar
-            ============================================================ */
-
-            /* --- AUTH BAR: hide during gameplay (shown only on welcome) --- */
-            .game-container.active ~ .auth-user-bar,
-            .game-container.active + .auth-user-bar,
-            .auth-user-bar {
+            /* Hide elements that consume space but aren't gameplay-critical */
+            .subtitle {
                 display: none !important;
             }
-
-            /* --- SCORE BOARD: always hide on mobile --- */
-            .score-board {
+            .lane h3 {
                 display: none !important;
             }
-
-            /* --- DOUBLES: hide by ID (JS adds .active, ID beats class) --- */
-            #redHome,
-            #blueHome,
-            .doubles-tracking,
-            .doubles-tracking.active {
-                display: none !important;
-            }
-
-            /* --- TIMER / SETTINGS --- */
-            .timer-display,
-            .timer-display.active {
+            .timer-display {
                 display: none !important;
             }
             .settings-btn {
                 display: none !important;
             }
-
-            /* --- DECORATIVE TEXT --- */
-            .subtitle,
-            .game-container > .subtitle,
-            .lane h3 {
-                display: none !important;
-            }
-
-            /* --- PLAYER BADGE inside home section --- */
-            .home-section > div[style*="text-align: center; margin-top"] {
-                display: none !important;
-            }
-
-            /* --- Formation boxes: keep hidden --- */
+            /* Formation info boxes inside home sections */
             .home-section > div[style*="rgba(239"],
             .home-section > div[style*="rgba(59"] {
                 display: none !important;
-            }
-
-            /* ── GAME CONTAINER ─────────────────────────────────────── */
-            .game-container {
-                padding: 2px 3px 0 !important;
-            }
-
-            /* ── TITLE: small, single line ──────────────────────────── */
-            .game-container > h1 {
-                font-size: 0.85em !important;
-                margin-bottom: 2px !important;
-                text-align: center !important;
-                line-height: 1.1 !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-            }
-
-            /* ── GAME-INFO BAR: one tight row ───────────────────────── */
-            .game-info {
-                padding: 3px 5px !important;
-                margin-bottom: 3px !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                gap: 4px !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                border-radius: 5px !important;
-            }
-            .current-turn {
-                font-size: 0.65em !important;
-                font-weight: bold !important;
-                white-space: nowrap !important;
-                flex-shrink: 0 !important;
-            }
-            .turn-indicator {
-                width: 12px !important;
-                height: 12px !important;
-                margin-left: 3px !important;
-                border-width: 2px !important;
-                vertical-align: middle !important;
-            }
-            .dice-section {
-                gap: 3px !important;
-                flex-wrap: nowrap !important;
-                flex-shrink: 0 !important;
-            }
-            .die {
-                width: 22px !important;
-                height: 22px !important;
-                font-size: 12px !important;
-                line-height: 22px !important;
-            }
-            .btn {
-                padding: 3px 7px !important;
-                font-size: 0.65em !important;
-                border-radius: 4px !important;
-                white-space: nowrap !important;
-            }
-
-            /* ── MESSAGE BOX: single compact line ───────────────────── */
-            .message-box {
-                padding: 2px 5px !important;
-                font-size: 0.65em !important;
-                margin-bottom: 3px !important;
-                border-radius: 4px !important;
-                line-height: 1.2 !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-            }
-
-            /* ── MOVE OPTIONS: compact strip ────────────────────────── */
-            .move-options {
-                margin-bottom: 3px !important;
-                padding: 2px 4px !important;
-            }
-            .move-options h3 {
-                font-size: 0.62em !important;
-                margin-bottom: 2px !important;
-            }
-            .move-buttons {
-                gap: 2px !important;
-                flex-wrap: wrap !important;
-                display: flex !important;
-            }
-            .btn-move {
-                padding: 2px 5px !important;
-                font-size: 0.62em !important;
-            }
-
-            /* ── BOARD AREA: 3-column row layout ────────────────────── */
-            /* Red Home | Lane | Blue Home  — all side by side          */
-            .board-area {
-                flex-direction: row !important;
-                align-items: stretch !important;
-                gap: 3px !important;
-                margin-bottom: 0 !important;
-                flex-wrap: nowrap !important;
-            }
-
-            /* ── HOME SECTIONS: narrow columns either side ──────────── */
-            .home-section {
-                width: 58px !important;
-                min-width: 58px !important;
-                max-width: 58px !important;
-                flex-shrink: 0 !important;
-                padding: 3px 3px !important;
-                gap: 2px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                box-sizing: border-box !important;
-                border-width: 1px !important;
-                border-radius: 5px !important;
-            }
-            .home-section h3 {
-                font-size: 0.55em !important;
-                margin: 0 0 2px 0 !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                width: 100% !important;
-            }
-            .tokens-grid {
-                display: grid !important;
-                grid-template-columns: repeat(2, 24px) !important;
-                gap: 2px !important;
-                margin-bottom: 2px !important;
-                justify-content: start !important;
-            }
-            .token {
-                width: 24px !important;
-                height: 24px !important;
-                font-size: 8px !important;
-            }
-            .tool-token {
-                width: 24px !important;
-                height: 24px !important;
-                font-size: 8px !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                margin-top: 1px !important;
-            }
-
-            /* ── LANE: flex-grow, 6-column snake grid ───────────────── */
-            .lane {
-                flex: 1 1 0 !important;
-                min-width: 0 !important;
-                width: auto !important;
-                padding: 2px !important;
-                overflow: visible !important;
-                box-sizing: border-box !important;
-            }
-            .lane-spaces {
-                display: grid !important;
-                grid-template-columns: repeat(6, 1fr) !important;
-                gap: 1px !important;
-                width: 100% !important;
-                padding: 0 !important;
-                overflow: visible !important;
-            }
-            .space {
-                flex: unset !important;
-                min-width: 0 !important;
-                min-height: 30px !important;
-                width: 100% !important;
-                padding: 1px !important;
-                font-size: 0.55em !important;
-                box-sizing: border-box !important;
-            }
-            .space-number {
-                font-size: 0.6em !important;
-                margin-bottom: 0 !important;
-                line-height: 1 !important;
-            }
-            .board-token {
-                width: 12px !important;
-                height: 12px !important;
-                font-size: 6px !important;
             }
         }
     </style>
