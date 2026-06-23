@@ -6877,22 +6877,6 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                 <button class="rule-btn rule-btn-blue" onclick="openRulebook(\'mh-token\')">MH Rules</button>
                             </div>
                             <h3 style="color: ${blueColor}">🔵 BLUE HOME</h3>
-                            <div class="tool-token">
-                                ${(() => {
-                                    const token = gameState.blueTokens.MH;
-                                    if (token.position === 'home') {
-                                        return `
-                                            <div class="token ${gameState.selectedToken?.id === 'MH' && gameState.selectedToken?.color === 'blue' ? 'selected' : ''}"
-                                                 style="background: ${blueColor}; color: white;"
-                                                 onclick="selectToken('MH', 'blue')">
-                                                MH
-                                            </div>
-                                        `;
-                                    } else {
-                                        return `<div class="token disabled" style="background: #1f2937; color: #6b7280;">-</div>`;
-                                    }
-                                })()}
-                            </div>
                             <div class="tokens-grid">
                                 ${['C1', 'C2', 'C3', 'C4'].map(id => {
                                     const token = gameState.blueTokens[id];
@@ -6913,6 +6897,22 @@ document.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ")startGa
                                         return `<div class="token disabled" style="background: #1f2937; color: #6b7280;">-</div>`;
                                     }
                                 }).join('')}
+                            </div>
+                            <div class="tool-token">
+                                ${(() => {
+                                    const token = gameState.blueTokens.MH;
+                                    if (token.position === 'home') {
+                                        return `
+                                            <div class="token ${gameState.selectedToken?.id === 'MH' && gameState.selectedToken?.color === 'blue' ? 'selected' : ''}"
+                                                 style="background: ${blueColor}; color: white;"
+                                                 onclick="selectToken('MH', 'blue')">
+                                                MH
+                                            </div>
+                                        `;
+                                    } else {
+                                        return `<div class="token disabled" style="background: #1f2937; color: #6b7280;">-</div>`;
+                                    }
+                                })()}
                             </div>
                             <div class="doubles-tracking ${gameState.showDoubles ? 'active' : ''}" id="blueHome">
                                 <div class="doubles-title">🎲 Doubles</div>
