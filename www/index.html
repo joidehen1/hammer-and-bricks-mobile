@@ -3000,57 +3000,44 @@
                 margin-left: 0 !important;
             }
 
-            /* ===== COMPACT HOME SECTION — reduce 427px height to ~110px =====
-               On 360×695 screens the two home sections + lane stack to 967px
-               (272px taller than the viewport). Make each home section a flat
-               horizontal strip: token grid runs left, info runs right. */
+            /* ===== COMPACT HOME SECTION — clean column layout =====
+               Force everything to stack vertically: title, then C tokens
+               2x2 grid, then MB/MH tool token directly below. */
             .home-section {
                 display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                flex-wrap: wrap !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                flex-wrap: nowrap !important;
                 gap: 4px !important;
                 padding: 4px 6px !important;
             }
-            /* Row 1: title + player badge — full width */
             .home-section h3 {
                 width: 100% !important;
                 margin: 0 0 2px 0 !important;
                 font-size: 0.72em !important;
                 text-align: left !important;
             }
-            /* Token grid: compact 2×2, natural width only */
             .tokens-grid {
                 display: grid !important;
                 grid-template-columns: repeat(2, 30px) !important;
                 gap: 3px !important;
                 margin-bottom: 0 !important;
-                flex-shrink: 0 !important;
-                width: auto !important;
             }
             .token, .tool-token {
                 width: 30px !important;
                 height: 30px !important;
                 font-size: 11px !important;
             }
-            /* MB / tool-token sits BELOW the C tokens grid */
             .tool-token {
-                flex-shrink: 0 !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: flex-start !important;
-                width: 100% !important;
-                margin-top: 3px !important;
+                width: auto !important;
+                margin-top: 2px !important;
             }
-            /* Rule buttons: hidden on mobile — not essential for gameplay */
             .rule-btns-row {
                 display: none !important;
             }
-            .rule-btn {
-                padding: 2px 5px !important;
-                font-size: 0.65em !important;
-            }
-            /* Doubles: collapsed to one line */
             .doubles-tracking {
                 width: 100% !important;
                 margin-top: 2px !important;
