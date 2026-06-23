@@ -3097,23 +3097,161 @@
                 font-size: 8px !important;
             }
 
-            /* Hide elements that consume space but aren't gameplay-critical */
+            /* ── REMOVE: Timer, Settings, Rule Buttons, Doubles, Lane heading ── */
+            .timer-display { display: none !important; }
+            .settings-btn { display: none !important; }
+            .rule-btns-row { display: none !important; }
+            .doubles-tracking { display: none !important; }
+            .lane h3 { display: none !important; }
+
+            /* ── KEEP: Title, Subtitle, Formation boxes — compact ── */
+            .game-container h1 {
+                font-size: 0.9em !important;
+                margin: 0 0 1px 0 !important;
+                text-align: center !important;
+            }
             .subtitle {
-                display: none !important;
+                font-size: 0.6em !important;
+                margin: 0 0 3px 0 !important;
+                text-align: center !important;
+                display: block !important;
             }
-            .lane h3 {
-                display: none !important;
-            }
-            .timer-display {
-                display: none !important;
-            }
-            .settings-btn {
-                display: none !important;
-            }
-            /* Formation info boxes inside home sections */
             .home-section > div[style*="rgba(239"],
             .home-section > div[style*="rgba(59"] {
-                display: none !important;
+                padding: 2px 3px !important;
+                margin-bottom: 2px !important;
+                font-size: 0.62em !important;
+                border-radius: 3px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* ── COMPACT GAME INFO BAR ── */
+            .game-info {
+                padding: 4px 6px !important;
+                margin-bottom: 4px !important;
+                border-radius: 5px !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                align-items: center !important;
+            }
+            .current-turn {
+                font-size: 0.78em !important;
+                font-weight: bold !important;
+            }
+            .turn-indicator {
+                width: 14px !important;
+                height: 14px !important;
+                border-width: 2px !important;
+                margin-left: 4px !important;
+            }
+            .dice-section {
+                display: flex !important;
+                gap: 4px !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+            }
+            .die {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 13px !important;
+                border-radius: 4px !important;
+                box-shadow: none !important;
+            }
+            .btn {
+                padding: 4px 7px !important;
+                font-size: 0.7em !important;
+                border-radius: 4px !important;
+            }
+
+            /* ── MESSAGE BOX ── */
+            .message-box {
+                padding: 3px 6px !important;
+                font-size: 0.72em !important;
+                margin-bottom: 3px !important;
+                border-radius: 4px !important;
+                border-width: 1px !important;
+            }
+
+            /* ── MOVE OPTIONS ── */
+            .move-options {
+                padding: 4px !important;
+                margin-bottom: 4px !important;
+            }
+            .move-options h3 {
+                font-size: 0.72em !important;
+                margin-bottom: 3px !important;
+            }
+            .move-buttons {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 3px !important;
+            }
+            .btn-move {
+                padding: 3px 5px !important;
+                font-size: 0.68em !important;
+            }
+
+            /* ── BOARD AREA ── */
+            .board-area {
+                gap: 4px !important;
+                margin-bottom: 4px !important;
+            }
+
+            /* ── HOME SECTIONS — tight borders ── */
+            .home-section {
+                padding: 4px 5px !important;
+                gap: 2px !important;
+                border-radius: 5px !important;
+                border-width: 2px !important;
+            }
+            .home-section h3 {
+                font-size: 0.68em !important;
+                margin: 0 0 2px 0 !important;
+            }
+            .tokens-grid {
+                gap: 2px !important;
+                margin-bottom: 0 !important;
+            }
+            .token {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 10px !important;
+                border-radius: 4px !important;
+            }
+            .tool-token {
+                margin-top: 2px !important;
+            }
+
+            /* ── SCORE BOARD — keep, compact ── */
+            .score-board {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 4px !important;
+                padding: 4px !important;
+                border-radius: 5px !important;
+                margin-top: 4px !important;
+                background: rgba(255,255,255,0.05) !important;
+            }
+            .player-score {
+                padding: 4px !important;
+                border-width: 2px !important;
+                border-radius: 4px !important;
+                text-align: center !important;
+            }
+            .player-score h3 {
+                font-size: 0.68em !important;
+                margin: 0 0 2px 0 !important;
+            }
+            .player-score p {
+                font-size: 0.62em !important;
+                margin: 1px 0 !important;
+            }
+            .player-score p:first-of-type {
+                font-size: 1.1em !important;
+                font-weight: bold !important;
+                margin: 2px 0 !important;
             }
         }
     </style>
