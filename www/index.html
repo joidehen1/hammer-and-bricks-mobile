@@ -2849,11 +2849,17 @@
            scrolling in case any phone is still slightly taller than one
            viewport. */
         @media (max-width: 768px) {
+
+            /* ── BODY & HTML ── */
             html, body {
                 overflow-y: auto !important;
                 height: auto !important;
                 min-height: 100% !important;
             }
+
+            /* ── TOUCH SCROLL FIX ── */
+
+            /* ── WELCOME SCREEN ── */
             .screen {
                 display: flex !important;
                 flex-direction: column !important;
@@ -2871,141 +2877,155 @@
                 padding: 0 !important;
             }
 
-            /* ===== MOBILE FIX — Game board (board-area / home-section / lane) =====
-               Desktop layout puts two fixed 200px Home sections either side
-               of the 41-space lane, all in one row with no scrolling. On a
-               phone that's wider than the screen itself, so the homes get
-               pushed off both edges and only a thin slice of the lane shows.
-               Fix: stack the two homes above/below the lane at full width,
-               and let the lane scroll horizontally within itself so all 41
-               spaces stay a readable size instead of being squeezed flat. */
-            .board-area {
-                flex-direction: column !important;
-                align-items: stretch !important;
-            }
-            .home-section {
-                min-width: 0 !important;
+            /* ── REMOVE: Timer, Settings, Rule Buttons, Doubles, Title ── */
+            .timer-display { display: none !important; }
+            .settings-btn { display: none !important; }
+            .rule-btns-row { display: none !important; }
+            .doubles-tracking { display: none !important; }
+
+            /* ── GAME CONTAINER ── */
+            .game-container {
+                padding: 6px 6px 0 6px !important;
                 max-width: 100% !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-            }
-            .lane {
-                flex: 0 0 auto !important;
-                overflow-x: visible !important;
-                -webkit-overflow-scrolling: touch !important;
-                width: 100% !important;
                 box-sizing: border-box !important;
             }
 
-            /* ===== MOBILE FIX — Timer/Settings overlap =====
-               Both float at a fixed position sized for desktop and can sit
-               on top of board content on a small screen. Shrink them and
-               pull them into the corner so they take up far less room. */
-            .settings-btn {
-                top: 8px !important;
-                left: 8px !important;
-                padding: 6px 10px !important;
-                font-size: 0.85em !important;
+            /* ── GAME TITLE & SUBTITLE — keep, compact ── */
+            .game-container h1 {
+                font-size: 0.95em !important;
+                margin: 0 0 2px 0 !important;
+                text-align: center !important;
             }
-            .timer-display {
-                top: 52px !important;
-                left: 8px !important;
-                padding: 8px 12px !important;
-                font-size: 0.85em !important;
+            .subtitle {
+                font-size: 0.65em !important;
+                margin: 0 0 4px 0 !important;
+                text-align: center !important;
             }
 
-            /* ===== MOBILE FIX — Shrink home sections, tokens, dice, buttons =====
-               Everything here was sized for a 200-220px desktop sidebar.
-               At full mobile width these still render at full desktop size,
-               making each home section very tall and pushing the lane far
-               down the page. Shrinking the tokens and controls means less
-               scrolling and a layout that feels properly built for a phone. */
-            .home-section {
-                padding: 5px !important;
+            /* ── GAME INFO BAR — turn + dice + buttons ── */
+            .game-info {
+                padding: 5px 6px !important;
+                margin-bottom: 4px !important;
+                border-radius: 6px !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            .current-turn {
+                font-size: 0.8em !important;
+                font-weight: bold !important;
+            }
+            .turn-indicator {
+                width: 16px !important;
+                height: 16px !important;
+                border-width: 2px !important;
+                margin-left: 5px !important;
+            }
+            .dice-section {
+                display: flex !important;
+                gap: 4px !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+            }
+            .die {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 13px !important;
+                border-radius: 4px !important;
+                box-shadow: none !important;
+            }
+            .btn {
+                padding: 4px 8px !important;
+                font-size: 0.72em !important;
+                border-radius: 5px !important;
+            }
+
+            /* ── MESSAGE BOX ── */
+            .message-box {
+                padding: 4px 6px !important;
+                font-size: 0.75em !important;
+                margin-bottom: 4px !important;
+                border-radius: 5px !important;
                 border-width: 1px !important;
             }
-            .home-section h3 {
+
+            /* ── MOVE OPTIONS ── */
+            .move-options {
+                padding: 4px !important;
                 margin-bottom: 4px !important;
-                font-size: 0.8em !important;
+                border-radius: 5px !important;
             }
-            .tokens-grid {
-                grid-template-columns: repeat(2, 36px) !important;
+            .move-options h3 {
+                font-size: 0.75em !important;
+                margin-bottom: 3px !important;
+            }
+            .move-buttons {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 3px !important;
+            }
+            .btn-move {
+                padding: 3px 6px !important;
+                font-size: 0.7em !important;
+                border-radius: 4px !important;
+            }
+
+            /* ── BOARD AREA — vertical stack ── */
+            .board-area {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
                 gap: 4px !important;
                 margin-bottom: 4px !important;
             }
-            .token, .tool-token {
-                width: 36px !important;
-                height: 36px !important;
-            }
-            .token {
-                font-size: 13px !important;
-            }
-            .die {
-                width: 32px !important;
-                height: 32px !important;
-                font-size: 16px !important;
-            }
-            .dice-section {
-                gap: 5px !important;
-            }
-            .btn {
-                padding: 6px 10px !important;
-                font-size: 0.78em !important;
-            }
-            .message-box {
-                padding: 5px !important;
-                font-size: 0.9em !important;
-                margin-bottom: 10px !important;
-            }
-            .doubles-tracking {
-                margin-top: 8px !important;
-                padding-top: 8px !important;
-            }
-            .doubles-breakdown {
-                margin-top: 3px !important;
-            }
 
-            /* ===== MOBILE FIX — Hide rule buttons, fix tool token alignment =====
-               C-Rules and MB-Rules buttons sit above the tokens taking up
-               vertical space — not essential on mobile, hidden entirely.
-               Tool tokens (MH/MB) were drifting right due to flex alignment
-               — fixed to stay left-aligned with the token grid. */
-            .rule-btns-row {
-                display: none !important;
-            }
-            .tool-token {
-                align-self: flex-start !important;
-                margin-left: 0 !important;
-            }
-
-            /* ===== COMPACT HOME SECTION — clean column layout =====
-               Force everything to stack vertically: title, then C tokens
-               2x2 grid, then MB/MH tool token directly below. */
+            /* ── HOME SECTIONS — tight borders around tokens ── */
             .home-section {
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: flex-start !important;
                 flex-wrap: nowrap !important;
-                gap: 4px !important;
-                padding: 4px 6px !important;
+                gap: 3px !important;
+                padding: 4px 5px !important;
+                border-width: 2px !important;
+                border-radius: 5px !important;
+                box-sizing: border-box !important;
+                width: 100% !important;
             }
             .home-section h3 {
+                font-size: 0.7em !important;
+                margin: 0 !important;
+                padding: 0 !important;
                 width: 100% !important;
-                margin: 0 0 2px 0 !important;
-                font-size: 0.72em !important;
-                text-align: left !important;
             }
+            /* Formation info boxes — keep, compact */
+            .home-section > div[style*="rgba(239"],
+            .home-section > div[style*="rgba(59"] {
+                padding: 2px 4px !important;
+                margin-bottom: 2px !important;
+                font-size: 0.65em !important;
+                border-radius: 3px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            /* C tokens 2x2 grid */
             .tokens-grid {
                 display: grid !important;
-                grid-template-columns: repeat(2, 30px) !important;
-                gap: 3px !important;
+                grid-template-columns: repeat(2, 28px) !important;
+                gap: 2px !important;
                 margin-bottom: 0 !important;
             }
-            .token, .tool-token {
-                width: 30px !important;
-                height: 30px !important;
-                font-size: 11px !important;
+            /* All tokens */
+            .token, .tool-token > .token {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 10px !important;
+                border-radius: 4px !important;
+                border-width: 1px !important;
             }
+            /* Tool token (MH/MB) below C tokens */
             .tool-token {
                 display: flex !important;
                 align-items: center !important;
@@ -3013,205 +3033,73 @@
                 width: auto !important;
                 margin-top: 2px !important;
             }
-            .rule-btns-row {
-                display: none !important;
-            }
-            .doubles-tracking {
-                width: 100% !important;
-                margin-top: 2px !important;
-                padding-top: 2px !important;
-                display: flex !important;
-                flex-wrap: wrap !important;
-                gap: 4px !important;
-                align-items: baseline !important;
-            }
-            .doubles-tracking.active {
-                display: flex !important;
-            }
-            .doubles-title {
-                font-size: 0.7em !important;
-                margin-bottom: 0 !important;
-            }
-            .doubles-count {
-                font-size: 0.7em !important;
-            }
-            .doubles-breakdown {
-                font-size: 0.65em !important;
-                line-height: 1.3 !important;
-                margin-top: 0 !important;
-                width: 100% !important;
-            }
-            /* Formation info box: shrink */
-            .home-section > div[style*="rgba(239"] ,
-            .home-section > div[style*="rgba(59"] {
-                width: 100% !important;
-                padding: 2px !important;
-                margin-bottom: 2px !important;
-            }
-            /* Player badge: inline small */
-            .home-section > div[style*="text-align: center; margin-top"] {
-                width: auto !important;
-                padding: 2px 6px !important;
-                font-size: 0.7em !important;
-                margin-top: 0 !important;
-            }
 
-            /* ===== SNAKE LANE LAYOUT =====
-               41 spaces in a 6-column grid wrapping into rows.
-               Each space ~54px wide × 6 = 324px fits within 360px screen.
-               Spaces flow left-to-right naturally — no horizontal scroll. */
+            /* ── LANE — 6-column snake grid, no scroll ── */
             .lane {
                 width: 100% !important;
-                padding: 6px !important;
                 overflow: visible !important;
                 box-sizing: border-box !important;
-            }
-            .lane h3 {
-                font-size: 0.75em !important;
-                margin-bottom: 4px !important;
-                text-align: center !important;
+                padding: 2px !important;
             }
             .lane-spaces {
                 display: grid !important;
                 grid-template-columns: repeat(6, 1fr) !important;
                 gap: 2px !important;
                 width: 100% !important;
-                padding: 0 !important;
                 overflow: visible !important;
             }
             .space {
                 flex: unset !important;
                 min-width: 0 !important;
-                min-height: 44px !important;
+                min-height: 40px !important;
                 width: 100% !important;
-                padding: 2px !important;
-                font-size: 0.7em !important;
+                padding: 1px !important;
+                box-sizing: border-box !important;
+                border-width: 1px !important;
+                border-radius: 3px !important;
             }
             .space-number {
-                font-size: 0.65em !important;
+                font-size: 0.6em !important;
                 margin-bottom: 1px !important;
             }
             .board-token {
-                width: 18px !important;
-                height: 18px !important;
-                font-size: 8px !important;
+                width: 16px !important;
+                height: 16px !important;
+                font-size: 7px !important;
+                border-radius: 2px !important;
+                border-width: 1px !important;
+            }
+            .space-tokens {
+                gap: 1px !important;
             }
 
-            /* ===== HIDE SPACE-WASTING ELEMENTS ON MOBILE ===== */
-
-            /* Game title and subtitle */
-            .game-container h1 {
-                display: none !important;
-            }
-            .subtitle {
-                display: none !important;
-            }
-
-            /* Timer and settings */
-            .timer-display {
-                display: none !important;
-            }
-            .settings-btn {
-                display: none !important;
-            }
-
-            /* Formation info boxes inside home sections */
-            .home-section > div[style*="rgba(239"],
-            .home-section > div[style*="rgba(59"] {
-                display: none !important;
-            }
-
-            /* Doubles tracking */
-            .doubles-tracking {
-                display: none !important;
-            }
-
-            /* Lane heading */
-            .lane h3 {
-                display: none !important;
-            }
-
-            /* Scores section if present */
-            .scores,
-            .score-section,
-            .win-stats-row {
-                display: none !important;
-            }
-
-            /* DOUBLES label beside dice */
-            .dice-section > div[style*="color: #fbbf24"] {
-                display: none !important;
-            }
-
-            /* ===== TIGHTEN HOME SECTION BORDERS ===== */
-            .home-section {
+            /* ── SCORE BOARD — keep, compact ── */
+            .score-board {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 4px !important;
                 padding: 4px !important;
-                gap: 3px !important;
-                border-radius: 6px !important;
-                border-width: 2px !important;
+                border-radius: 5px !important;
+                margin-top: 4px !important;
             }
-            .home-section h3 {
+            .player-score {
+                padding: 4px !important;
+                border-width: 2px !important;
+                border-radius: 4px !important;
+                text-align: center !important;
+            }
+            .player-score h3 {
                 font-size: 0.7em !important;
                 margin: 0 0 2px 0 !important;
-                padding: 0 !important;
             }
-            .tokens-grid {
-                gap: 2px !important;
-                margin-bottom: 2px !important;
+            .player-score p {
+                font-size: 0.65em !important;
+                margin: 1px 0 !important;
             }
-            .tool-token {
-                margin-top: 2px !important;
-            }
-
-            /* ===== COMPACT GAME INFO BAR ===== */
-            .game-info {
-                padding: 6px 8px !important;
-                margin-bottom: 6px !important;
-                border-radius: 6px !important;
-                flex-wrap: wrap !important;
-                gap: 4px !important;
-            }
-            .current-turn {
-                font-size: 0.85em !important;
-            }
-            .turn-indicator {
-                width: 18px !important;
-                height: 18px !important;
-                border-width: 2px !important;
-            }
-            .dice-section {
-                gap: 5px !important;
-            }
-            .die {
-                width: 28px !important;
-                height: 28px !important;
-                font-size: 14px !important;
-                border-radius: 5px !important;
-            }
-            .btn {
-                padding: 5px 8px !important;
-                font-size: 0.75em !important;
-            }
-            .message-box {
-                padding: 5px 8px !important;
-                font-size: 0.8em !important;
-                margin-bottom: 6px !important;
-            }
-            .move-options {
-                padding: 5px !important;
-                margin-bottom: 6px !important;
-            }
-            .move-options h3 {
-                font-size: 0.8em !important;
-                margin-bottom: 4px !important;
-            }
-            .btn-move {
-                padding: 4px 6px !important;
-                font-size: 0.75em !important;
-            }
-            .board-area {
-                gap: 6px !important;
-                margin-bottom: 6px !important;
+            .player-score p:first-of-type {
+                font-size: 1.2em !important;
+                font-weight: bold !important;
+                margin: 2px 0 !important;
             }
         }
     </style>
