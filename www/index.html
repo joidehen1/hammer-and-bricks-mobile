@@ -3231,33 +3231,58 @@
 
             /* ── TIGHTEN ALL ELEMENTS TO FIT ONE SCREEN ── */
             .game-container {
-                padding: 4px 5px 0 5px !important;
+                padding: 3px 4px 0 4px !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
             }
             .game-container h1 {
-                font-size: 0.85em !important;
+                font-size: 0.8em !important;
                 margin: 0 0 1px 0 !important;
                 text-align: center !important;
             }
             .subtitle {
-                font-size: 0.58em !important;
-                margin: 0 0 3px 0 !important;
+                font-size: 0.55em !important;
+                margin: 0 0 2px 0 !important;
                 text-align: center !important;
                 display: block !important;
             }
             .game-info {
-                padding: 3px 5px !important;
-                margin-bottom: 3px !important;
+                padding: 3px 4px !important;
+                margin-bottom: 2px !important;
+                flex-wrap: nowrap !important;
+            }
+            .current-turn {
+                font-size: 0.72em !important;
+            }
+            .dice-section {
+                gap: 3px !important;
+                flex-wrap: nowrap !important;
+            }
+            .die {
+                width: 22px !important;
+                height: 22px !important;
+                font-size: 11px !important;
+            }
+            .btn {
+                padding: 3px 6px !important;
+                font-size: 0.65em !important;
             }
             .message-box {
-                padding: 3px 5px !important;
-                font-size: 0.7em !important;
-                margin-bottom: 3px !important;
+                padding: 2px 4px !important;
+                font-size: 0.65em !important;
+                margin-bottom: 2px !important;
             }
             .move-options {
-                padding: 3px !important;
-                margin-bottom: 3px !important;
+                padding: 2px !important;
+                margin-bottom: 2px !important;
+            }
+            .move-options h3 {
+                font-size: 0.65em !important;
+                margin-bottom: 2px !important;
+            }
+            .btn-move {
+                padding: 2px 4px !important;
+                font-size: 0.62em !important;
             }
             .board-area {
                 gap: 3px !important;
@@ -3266,43 +3291,47 @@
             .home-section {
                 padding: 3px 4px !important;
                 gap: 2px !important;
+                border-width: 1px !important;
             }
             .home-section h3 {
-                font-size: 0.65em !important;
+                font-size: 0.62em !important;
                 margin: 0 !important;
             }
             .home-section > div[style*="rgba(239"],
             .home-section > div[style*="rgba(59"] {
-                padding: 1px 3px !important;
+                padding: 1px 2px !important;
                 margin-bottom: 1px !important;
-                font-size: 0.58em !important;
+                font-size: 0.55em !important;
             }
             .tokens-grid {
-                grid-template-columns: repeat(2, 26px) !important;
+                grid-template-columns: repeat(2, 24px) !important;
                 gap: 2px !important;
             }
-            .token, .tool-token > .token {
-                width: 26px !important;
-                height: 26px !important;
-                font-size: 9px !important;
+            .token {
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 8px !important;
+            }
+            .tool-token {
+                margin-top: 1px !important;
             }
             .lane {
                 padding: 1px !important;
             }
             .lane-spaces {
-                gap: 2px !important;
+                gap: 1px !important;
             }
             .space {
-                min-height: 36px !important;
+                min-height: 32px !important;
                 padding: 1px !important;
             }
             .space-number {
-                font-size: 0.55em !important;
+                font-size: 0.52em !important;
             }
             .board-token {
-                width: 14px !important;
-                height: 14px !important;
-                font-size: 6px !important;
+                width: 12px !important;
+                height: 12px !important;
+                font-size: 5px !important;
             }
         }
     </style>
