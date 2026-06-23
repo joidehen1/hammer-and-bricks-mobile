@@ -2987,6 +2987,19 @@
                 margin-top: 3px !important;
             }
 
+            /* ===== MOBILE FIX — Hide rule buttons, fix tool token alignment =====
+               C-Rules and MB-Rules buttons sit above the tokens taking up
+               vertical space — not essential on mobile, hidden entirely.
+               Tool tokens (MH/MB) were drifting right due to flex alignment
+               — fixed to stay left-aligned with the token grid. */
+            .rule-btns-row {
+                display: none !important;
+            }
+            .tool-token {
+                align-self: flex-start !important;
+                margin-left: 0 !important;
+            }
+
             /* ===== COMPACT HOME SECTION — reduce 427px height to ~110px =====
                On 360×695 screens the two home sections + lane stack to 967px
                (272px taller than the viewport). Make each home section a flat
