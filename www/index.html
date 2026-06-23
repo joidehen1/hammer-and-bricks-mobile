@@ -3077,6 +3077,66 @@
                 font-size: 0.7em !important;
                 margin-top: 0 !important;
             }
+
+            /* ===== SNAKE LANE LAYOUT =====
+               41 spaces in a 6-column grid wrapping into rows.
+               Each space ~54px wide × 6 = 324px fits within 360px screen.
+               Spaces flow left-to-right naturally — no horizontal scroll. */
+            .lane {
+                width: 100% !important;
+                padding: 6px !important;
+                overflow: visible !important;
+                box-sizing: border-box !important;
+            }
+            .lane h3 {
+                font-size: 0.75em !important;
+                margin-bottom: 4px !important;
+                text-align: center !important;
+            }
+            .lane-spaces {
+                display: grid !important;
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 2px !important;
+                width: 100% !important;
+                padding: 0 !important;
+                overflow: visible !important;
+            }
+            .space {
+                flex: unset !important;
+                min-width: 0 !important;
+                min-height: 44px !important;
+                width: 100% !important;
+                padding: 2px !important;
+                font-size: 0.7em !important;
+            }
+            .space-number {
+                font-size: 0.65em !important;
+                margin-bottom: 1px !important;
+            }
+            .board-token {
+                width: 18px !important;
+                height: 18px !important;
+                font-size: 8px !important;
+            }
+
+            /* Hide elements that consume space but aren't gameplay-critical */
+            .subtitle {
+                display: none !important;
+            }
+            .lane h3 {
+                display: none !important;
+            }
+            .timer-display {
+                display: none !important;
+            }
+            .settings-btn {
+                display: none !important;
+            }
+            /* Formation info boxes inside home sections */
+            .home-section > div[style*="rgba(239"],
+            .home-section > div[style*="rgba(59"] {
+                display: none !important;
+            }
         }
     </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
