@@ -3224,34 +3224,85 @@
                 margin-top: 2px !important;
             }
 
-            /* ── SCORE BOARD — keep, compact ── */
+            /* ── REMOVE: Score Board / Finished Zone ── */
             .score-board {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 4px !important;
-                padding: 4px !important;
-                border-radius: 5px !important;
-                margin-top: 4px !important;
-                background: rgba(255,255,255,0.05) !important;
+                display: none !important;
             }
-            .player-score {
-                padding: 4px !important;
-                border-width: 2px !important;
-                border-radius: 4px !important;
+
+            /* ── TIGHTEN ALL ELEMENTS TO FIT ONE SCREEN ── */
+            .game-container {
+                padding: 4px 5px 0 5px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .game-container h1 {
+                font-size: 0.85em !important;
+                margin: 0 0 1px 0 !important;
                 text-align: center !important;
             }
-            .player-score h3 {
-                font-size: 0.68em !important;
-                margin: 0 0 2px 0 !important;
+            .subtitle {
+                font-size: 0.58em !important;
+                margin: 0 0 3px 0 !important;
+                text-align: center !important;
+                display: block !important;
             }
-            .player-score p {
-                font-size: 0.62em !important;
-                margin: 1px 0 !important;
+            .game-info {
+                padding: 3px 5px !important;
+                margin-bottom: 3px !important;
             }
-            .player-score p:first-of-type {
-                font-size: 1.1em !important;
-                font-weight: bold !important;
-                margin: 2px 0 !important;
+            .message-box {
+                padding: 3px 5px !important;
+                font-size: 0.7em !important;
+                margin-bottom: 3px !important;
+            }
+            .move-options {
+                padding: 3px !important;
+                margin-bottom: 3px !important;
+            }
+            .board-area {
+                gap: 3px !important;
+                margin-bottom: 0 !important;
+            }
+            .home-section {
+                padding: 3px 4px !important;
+                gap: 2px !important;
+            }
+            .home-section h3 {
+                font-size: 0.65em !important;
+                margin: 0 !important;
+            }
+            .home-section > div[style*="rgba(239"],
+            .home-section > div[style*="rgba(59"] {
+                padding: 1px 3px !important;
+                margin-bottom: 1px !important;
+                font-size: 0.58em !important;
+            }
+            .tokens-grid {
+                grid-template-columns: repeat(2, 26px) !important;
+                gap: 2px !important;
+            }
+            .token, .tool-token > .token {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 9px !important;
+            }
+            .lane {
+                padding: 1px !important;
+            }
+            .lane-spaces {
+                gap: 2px !important;
+            }
+            .space {
+                min-height: 36px !important;
+                padding: 1px !important;
+            }
+            .space-number {
+                font-size: 0.55em !important;
+            }
+            .board-token {
+                width: 14px !important;
+                height: 14px !important;
+                font-size: 6px !important;
             }
         }
     </style>
