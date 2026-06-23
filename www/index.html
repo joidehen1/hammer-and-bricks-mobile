@@ -3097,11 +3097,20 @@
                 font-size: 8px !important;
             }
 
-            /* Hide elements that consume space but aren't gameplay-critical */
-            .subtitle {
+            /* ===== MOBILE FIT-TO-SCREEN — Galaxy S26 (360×780px) =====
+               Goal: entire game board visible with zero vertical scroll.
+               Strategy:
+                 • Hide score-board, doubles-tracking, timer, settings btn
+                 • Compress game-container, h1, game-info, message-box
+                 • Keep: title, subtitle, turn label, dice, Roll Dice,
+                   End Turn, move options, all tokens, all 41 lane spaces */
+
+            /* --- Hide non-essential panels --- */
+            .score-board {
                 display: none !important;
             }
-            .lane h3 {
+            .doubles-tracking,
+            .doubles-tracking.active {
                 display: none !important;
             }
             .timer-display {
@@ -3110,10 +3119,141 @@
             .settings-btn {
                 display: none !important;
             }
-            /* Formation info boxes inside home sections */
+            .subtitle {
+                display: none !important;
+            }
+            .lane h3 {
+                display: none !important;
+            }
+            /* Formation info boxes inside home sections — keep hidden */
             .home-section > div[style*="rgba(239"],
             .home-section > div[style*="rgba(59"] {
                 display: none !important;
+            }
+
+            /* --- Game container: no wasted padding --- */
+            .game-container {
+                padding: 0 4px !important;
+            }
+
+            /* --- Title: ultra-compact, keep visible --- */
+            .game-container > h1 {
+                font-size: 1em !important;
+                margin-bottom: 4px !important;
+                text-align: center !important;
+                line-height: 1.2 !important;
+            }
+            .game-container > .subtitle {
+                display: none !important;
+            }
+
+            /* --- Game-info bar: compress to one tight row --- */
+            .game-info {
+                padding: 4px 6px !important;
+                margin-bottom: 4px !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                align-items: center !important;
+                border-radius: 6px !important;
+            }
+            .current-turn {
+                font-size: 0.75em !important;
+                font-weight: bold !important;
+            }
+            .turn-indicator {
+                width: 14px !important;
+                height: 14px !important;
+                margin-left: 4px !important;
+                border-width: 2px !important;
+            }
+            .dice-section {
+                gap: 4px !important;
+            }
+            .die {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 14px !important;
+            }
+            .btn {
+                padding: 4px 8px !important;
+                font-size: 0.7em !important;
+                border-radius: 5px !important;
+            }
+
+            /* --- Message box: one short line --- */
+            .message-box {
+                padding: 3px 6px !important;
+                font-size: 0.7em !important;
+                margin-bottom: 4px !important;
+                border-radius: 5px !important;
+                line-height: 1.3 !important;
+            }
+
+            /* --- Move options: compact --- */
+            .move-options {
+                margin-bottom: 4px !important;
+                padding: 3px 6px !important;
+            }
+            .move-options h3 {
+                font-size: 0.7em !important;
+                margin-bottom: 3px !important;
+            }
+            .move-buttons {
+                gap: 3px !important;
+                flex-wrap: wrap !important;
+            }
+            .btn-move {
+                padding: 3px 7px !important;
+                font-size: 0.68em !important;
+            }
+
+            /* --- Board area: tight --- */
+            .board-area {
+                gap: 4px !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* --- Home sections: minimal height --- */
+            .home-section {
+                padding: 3px 5px !important;
+                gap: 2px !important;
+            }
+            .home-section h3 {
+                font-size: 0.65em !important;
+                margin: 0 0 1px 0 !important;
+            }
+            .tokens-grid {
+                grid-template-columns: repeat(2, 26px) !important;
+                gap: 2px !important;
+            }
+            .token, .tool-token {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 9px !important;
+            }
+
+            /* --- Lane: all 41 spaces in 6-column grid, no scroll --- */
+            .lane {
+                padding: 3px !important;
+            }
+            .lane-spaces {
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 1px !important;
+            }
+            .space {
+                min-height: 36px !important;
+                padding: 1px !important;
+                font-size: 0.6em !important;
+            }
+            .space-number {
+                font-size: 0.6em !important;
+                margin-bottom: 0 !important;
+            }
+            .board-token {
+                width: 14px !important;
+                height: 14px !important;
+                font-size: 7px !important;
             }
         }
     </style>
